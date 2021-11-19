@@ -1,13 +1,15 @@
 class ItemsController < ApplicationController
-  before_action :set_dept
-  before_action :set_item, only [:show, :edit, :update, :destroy]
+  before_action :set_dept, except: [:showall]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
 
   def index
-    render component: "Items", props: { dept: @dept items: @item}
+    render component: "Items", props: { depts: @dept, items: @dept.items }
   end
 
-
+  def show
+    render component: "Item", props: { items: @item }
+  end
 
   private
 

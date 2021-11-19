@@ -18,7 +18,7 @@ class DepartmentsController < ApplicationController
   end
 
   def show
-    render component: "Department", props: { dept: @dept }
+    render component: "Items", props: { depts: @dept, items: @dept.items }
   end
 
   def edit
