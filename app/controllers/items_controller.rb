@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
   end
   
   def new
-    render component: "New Item", props: {dept: @dept}
+    render component: "NewItem", props: {dept: @dept}
   end
   
   def create
@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    render component: "Edit Item", props: {dept: @dept, item: @item}
+    render component: "EditItem", props: {dept: @dept, item: @item}
   end
 
   def update
