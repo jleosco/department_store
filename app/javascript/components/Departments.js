@@ -20,6 +20,7 @@ const Departments = (props) => {
   return(
     <div>
       <h1>Departments:</h1>
+      <a href={"/departments/new"}>New Department</a>
       {renderIndex()}
     </div> 
   );

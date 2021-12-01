@@ -11,6 +11,34 @@ class ItemsController < ApplicationController
     render component: "Item", props: { items: @item }
   end
 
+  def destroy
+    @item.destroy
+    redirect_to departments_items_path(@dept.id)
+  end
+  
+  def new
+    render component: "New Item", props: {dept: @dept}
+  end
+  
+  def create
+    @item = @dept.item.new(item_params)
+    if(@item.save)
+      redirect_to [@dept,@item]
+    else
+    end
+  end
+
+  def edit
+    render component: "Edit Item", props: {dept: @dept, item: @item}
+  end
+
+  def update
+    if(@item.update(item_params))
+      redirect_to [@dept,@item]
+    else
+    end
+  end
+
   private
 
   def item_params
